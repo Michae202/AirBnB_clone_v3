@@ -154,9 +154,9 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Barnabas Moses Yabilsu - [Github](https://github.com/dukurma) / [Twitter](https://twitter.com/iamjo_el) 
+Barnabas Moses Yabilsu - [Github](https://github.com/dukurma) / [Twitter](https://twitter.com/iamjo_el)] 
  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+Rebecca Adelaja - [Github](https://github.com/becky1703) /[ email:( oluwabukunmia@gmail.com)]
 
 Second part of Airbnb: Joann Vuong
 ## License
