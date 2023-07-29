@@ -12,6 +12,7 @@ from models.place import Place
 from models.state import State
 from models.user import User
 
+
 @app_views.route('/cities/<city_id>/places', methods=['GET', 'POST'])
 @app_views.route('/places/<place_id>', methods=['GET', 'DELETE', 'PUT'])
 def handle_places(city_id=None, place_id=None):
@@ -49,7 +50,7 @@ def get_places(city_id=None, place_id=None):
                 return jsonify(place.to_dict())
         raise NotFound()
 
-    
+
 def removes_place(city_id=None, place_id=None):
     """Deletes a place with a given id"""
     if place_id:
@@ -60,7 +61,7 @@ def removes_place(city_id=None, place_id=None):
             return jsonify({}), 200
         raise NotFound()
 
-    
+
 def add_place(city_id=None, place_id=None):
     """Add a place"""
     city = storage.get(City, city_id)
@@ -97,6 +98,7 @@ def update_place(city_id=None, place_id=None):
         return jsonify(place.to_dict()), 200
     raise NotFound()
 
+
 @app_views.route('/places_search', methods=['POST'])
 def find_places():
     """Looks for places based on a list of State, City, or Amenity ids"""
@@ -131,15 +133,15 @@ def find_places():
                 new_places = []
                 if storage_t == 'db':
                     new_places = list(
-                        filter(lambda x: xid not in places_id, city.places)
+                        filter(lambda x: x.id not in places_id, city.places)
                     )
                 else:
-                     new_places = []
-                     for place in all_places:
-                         if place.id in places_id:
-                             continue
-                         if place.city_id == city.id:
-                             new_places.append(place)
+                    new_places = []
+                    for place in all_places:
+                        if place.id in places_id:
+                            continue
+                        if place.city_id == city.id:
+                            new_places.append(place)
                 places.extend(new_places)
                 places_id.extend(list(map(lambda x: x.id, new_places)))
     if keys_status[1]:
@@ -149,7 +151,7 @@ def find_places():
             city = storage.get(City, city_id)
             if city:
                 new_places = []
-                if storage_t =='db':
+                if storage_t == 'db':
                     new_places = list(
                         filter(lambda x: x.id not in places_id, city.places)
                     )
