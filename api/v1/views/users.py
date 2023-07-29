@@ -2,7 +2,7 @@
 """Creates a new view for User object that handles all
    default RESTful API actions"""
 
-from flask import jsonify, request
+from flask import Blueprint, jsonify, request, abort
 from werkzeug.exceptions import NotFound, BadRequest
 from api.v1.views import app_views
 from models import storage
@@ -10,7 +10,6 @@ from models.user import User
 
 
 @app_views.route('/users', methods=['GET'])
-@apps_views.route('/users/<users_id>', methods=['GET'])
 def get_users(user_id=None):
     """Retrieves the user with given id or all users"""
     if user_id:
