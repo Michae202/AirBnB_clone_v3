@@ -41,20 +41,6 @@ def del_amenity(amenity_id):
     return jsonify({})
 
 
-"""@app_views.route('/amenities/', methods=['POST'],
-                 strict_slashes=False)
-@swag_from('documentation/amenity/post.yml', methods=['POST'])
-def create_obj_amenity():
-    """ create new instance """
-    if not request.get_json():
-        return make_response(jsonify({"error": "Not a JSON"}), 400)
-    if 'name' not in request.get_json():
-        return make_response(jsonify({"error": "Missing name"}), 400)
-    js = request.get_json()
-    obj = Amenity(**js)
-    obj.save()
-    return (jsonify(obj.to_dict()), 201)"""
-
 @app_views.route('/amenities/', methods=['POST'], strict_slashes=False)
 @swag_from('documentation/amenity/post.yml', methods=['POST'])
 def create_obj_amenity():
@@ -73,7 +59,6 @@ def create_obj_amenity():
     obj = Amenity(**valid_attributes)
     obj.save()
     return (jsonify(obj.to_dict()), 201)
-
 
 
 @app_views.route('/amenities/<string:amenity_id>', methods=['PUT'],
