@@ -2,7 +2,7 @@
 """Creates a new view for place objects that handles
    all default RESTFUL API actions"""
 
-from flask import Blueprint, jsonify, request, abort
+from flask import jsonify, request
 from werkzeug.exceptions import NotFound, MethodNotAllowed, BadRequest
 from api.v1.views import app_views
 from models import storage, storage_t
@@ -16,10 +16,10 @@ from models.user import User
 @app_views.route('/cities/<city_id>/places', methods=['GET', 'POST'])
 @app_views.route('/places/<place_id>', methods=['GET', 'DELETE', 'PUT'])
 def handle_places(city_id=None, place_id=None):
-    """hnadles the method for places"""
+    """handles the method for places"""
     handlers = {
         'GET': get_places,
-        'DELETE': remove_place,
+        'DELETE': removes_place,
         'POST': add_place,
         'PUT': update_place
     }
@@ -35,7 +35,7 @@ def get_places(city_id=None, place_id=None):
         city = storage.get(City, city_id)
         if city:
             all_places = []
-            if storage_t == 'db':
+            if storage_t == "db":
                 all_places = list(city.places)
             else:
                 all_places = list(filter(
