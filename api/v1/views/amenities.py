@@ -65,7 +65,7 @@ def create_obj_amenity():
                  strict_slashes=False)
 @swag_from('documentation/amenity/put.yml', methods=['PUT'])
 def post_amenity(amenity_id):
-    """  """
+    """  updates amenities"""
     if not request.get_json():
         return make_response(jsonify({"error": "Not a JSON"}), 400)
     obj = storage.get(Amenity, amenity_id)
