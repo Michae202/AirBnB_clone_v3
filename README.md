@@ -158,6 +158,8 @@ Barnabas Moses Yabilsu - [Github](https://github.com/dukurma) / [Twitter](https:
  
 Rebecca Adelaja - [Github](https://github.com/becky1703) /[ email:( oluwabukunmia@gmail.com)]
 
+Michael Wachira - [Github](https://github.com/Michae202) /[ email:( Mikewachirabb495@gmail.com)]
+
 Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
